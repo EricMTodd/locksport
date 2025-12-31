@@ -1,6 +1,7 @@
 from random import randint
 
 def get_x():
+	"""Gets player input for the first guess."""
 	while True:
 		x = input("First number: ").strip()
 		if x == "exit":
@@ -12,6 +13,7 @@ def get_x():
 				print("Please enter an integer.")
 
 def get_y():
+	"""Gets player input for the second guess."""
 	while True:
 		y = input("Second number: ").strip()
 		if y == "exit":
@@ -23,6 +25,7 @@ def get_y():
 				print("Please enter an integer.")
 
 def get_z():
+	"""Gets player input for the third guess."""
 	while True:
 		z = input("Third number: ").strip()
 		if z == "exit":
@@ -33,7 +36,9 @@ def get_z():
 			except ValueError:
 				print("Please enter an integer.")
 
+
 def main():
+	"""The Primary logic of the game."""
 	score = 0
 	attempts = 3
 	print("Your goal is to guess 3 random numbers between 1 and 5. You will receive two clues to the numbers.\nYou have 3 attempts before you lose the game.\n")
