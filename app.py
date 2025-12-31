@@ -1,5 +1,21 @@
 from random import randint
 
+def select_difficulty():
+	print("Enter a number between 5 and 10. This will determine the upper bound of possible values in the numbers you have to guess. It will also determine the number of points you're assigned for correctly guessing the solution.\n")
+
+	while True:
+		difficulty = input("Select difficulty: ")
+		if difficulty == "exit":
+			return "exit"
+		else:
+			try:
+				if int(difficulty) < 5 or int(difficulty) > 10:
+					print("Please select a number between 5 and 10.\n")
+				else:
+					return int(difficulty)
+			except ValueError:
+				print("Please enter an integer")
+
 def get_x():
 	"""Gets player input for the first guess."""
 	while True:
@@ -43,15 +59,19 @@ def main():
 	attempts = 3
 	print("Your goal is to guess 3 random numbers between 1 and 5. You will receive two clues to the numbers.\nYou have 3 attempts before you lose the game.\n")
 
+	difficulty = select_difficulty()
+	if difficulty == "exit":
+		return
+
 	while True:
-		a = randint(1, 5)
-		b = randint(1, 5)
-		c = randint(1, 5)
+		a = randint(1, difficulty)
+		b = randint(1, difficulty)
+		c = randint(1, difficulty)
 		random_sum = a + b + c
 		random_product = a * b * c
 
 
-		print(f"Clue 1: The sum of the numbers is {random_sum}")
+		print(f"\nClue 1: The sum of the numbers is {random_sum}")
 		print(f"Clue 2: The product of the numbers is {random_product}\n")
 
 
@@ -69,7 +89,7 @@ def main():
 
 		if random_sum == guessed_sum and random_product == guessed_product:
 			print("\nYOU WIN!")
-			score += 1
+			score += difficulty - 4
 			print(f"Score: {score}\n")
 		else:
 			print("\nYOU LOSE!")
