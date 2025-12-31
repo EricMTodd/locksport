@@ -1,0 +1,6 @@
+# locksport
+https://docs.python.org/3/library/index.html
+
+This is a simple game designed to test your basic mental math skills.
+
+You have to guess a three number combination. You will be given two clues. A number that when the three number combination is added together, and another when the combination is multiplied together.
