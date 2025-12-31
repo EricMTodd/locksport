@@ -90,7 +90,7 @@ def main():
 		if random_sum == guessed_sum and random_product == guessed_product:
 			print("\nYOU WIN!")
 			score += difficulty - 4
-			print(f"Score: {score}\n")
+			print(f"Score: {score}")
 		else:
 			print("\nYOU LOSE!")
 			attempts -= 1
