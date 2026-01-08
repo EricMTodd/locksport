@@ -57,7 +57,7 @@ def main():
 	"""The Primary logic of the game."""
 	score = 0
 	attempts = 3
-	print("Your goal is to guess 3 random numbers between 1 and 5. You will receive two clues to the numbers.\nYou have 3 attempts before you lose the game.\n")
+	print("Your goal is to guess 3 random numbers between 1 and 5. You will receive two clues to the numbers.\nYou have 3 attempts before you lose the game.\nEnter 'exit' at any time to quit the program.\n")
 
 	difficulty = select_difficulty()
 	if difficulty == "exit":
