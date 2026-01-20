@@ -1,7 +1,7 @@
 from random import randint
 
 def select_difficulty():
-	print("Enter a number from 5 to 9. This will determine the upper bound of possible values in the numbers you have to guess. It will also determine the number of points you're assigned for correctly guessing the solution.\n")
+	print("Enter a number from 1 to 5. This will determine the upper bound of possible values in the numbers you have to guess. It will also determine the number of points you're assigned for correctly guessing the solution.\n")
 
 	while True:
 		difficulty = input("Select difficulty: ")
@@ -9,10 +9,10 @@ def select_difficulty():
 			return "exit"
 		else:
 			try:
-				if int(difficulty) < 5 or int(difficulty) > 9:
-					print("Please select a number from 5 to 9.\n")
+				if int(difficulty) < 1 or int(difficulty) > 5:
+					print("Please select a number from 1 to 5.\n")
 				else:
-					return int(difficulty)
+					return int(difficulty) + 4
 			except ValueError:
 				print("Please enter an integer")
 
