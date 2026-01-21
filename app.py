@@ -1,6 +1,7 @@
 from random import randint
 
 def select_difficulty():
+    """Allows the player to select their desired difficulty."""
 	print("Enter a number from 1 to 5. This will determine the upper bound of possible values in the numbers you have to guess. It will also determine the number of points you're assigned for correctly guessing the solution.\n")
 
 	while True:
