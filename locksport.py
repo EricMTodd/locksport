@@ -15,6 +15,13 @@ class Locksport:
 
     def __init__(self):
         """Initialize engine attributes."""
+        self.rules = (
+            "\n---LOCKSPORT---"
+            "\nWelcome to Locksport!"
+            "\nYou have three attempts to guess a three digit code."
+            "\nYou will be provided two clues:"
+            "\nthe sum and product of the digits."
+            )
         self.user = None
         self.difficulty = 0
         self.random_code = []
@@ -71,14 +78,7 @@ class Locksport:
 
     def play_game(self):
         """Core gameplay loop."""
-        print(
-            "\n---LOCKSPORT---"
-            "\nWelcome to Locksport!"
-            "\nYou have three attempts to guess a three digit code."
-            "\nYou will be provided two clues:"
-            "\nthe sum and product of the digits."
-            )
-
+        print(self.rules)
         self.user = User(self)
         self.set_difficulty()
         while True:
