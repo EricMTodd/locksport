@@ -20,10 +20,6 @@ class Locksport:
         self.random_code = []
         self.clues = {}
 
-    def set_user(self):
-        """Sets the current user for this session"""
-        self.user = User()
-
     def set_difficulty(self):
         """Sets the difficulty for this session"""
         while True:
