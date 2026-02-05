@@ -16,7 +16,7 @@ class Locksport:
     def __init__(self):
         """Initialize engine attributes."""
         self.user = None
-        self.difficulty = None
+        self.difficulty = 0
         self.random_code = []
         self.clues = {}
 
@@ -52,21 +52,34 @@ class Locksport:
             clues['product'] *= x
         self.clues = clues
 
+    def evaluate_score(self):
+        """Evaluates the users guesses against the clues to the code."""
+        for x in self.user.guesses:
+            self.user.guess_values['sum'] += x
+            self.user.guess_values['product'] *= x
+        if self.user.guess_values['sum'] == self.clues['sum'] and self.user.guess_values['product'] == self.clues['product']:
+            print("You win!")
+        else:
+            print("You lose!")
+        self.user.guesses = []
+        self.user.guess_values = {
+            'sum': 0,
+            'product': 1
+            }
+
     def play_game(self):
         """Core gameplay loop."""
+        print()
 
-        # Perform intial setup
+        self.user = User(self)
         self.set_difficulty()
-        self.generate_random_code()
-        self.set_clues()
-
-        # Provide clues to the user
-        print(
-            "\nYour goal is to guess a randomly generated three digit code."
-            "\nYour only clues are the sum and the product of the three numbers."
-            f"\nSum: {self.clues['sum']}"
-            f"\nProduct: {self.clues['product']}"
-            )
-
-
-Locksport().play_game()
+        while True:
+            self.generate_random_code()
+            self.set_clues()
+            print(
+                "\nClues:"
+                f"\n1) Sum: {self.clues['sum']}"
+                f"\n2) Product: {self.clues['product']}"
+                )
+            self.user.guess_code()
+            self.evaluate_score()
