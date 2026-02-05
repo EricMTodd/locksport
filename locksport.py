@@ -27,7 +27,13 @@ class Locksport:
     def set_difficulty(self):
         """Sets the difficulty for this session"""
         while True:
-            difficulty_input = input("Enter a number from 1 to 5: ")
+            difficulty_input = input(
+                "\n---SET DIFFICULTY---"
+                "\nThis will determine the upper bound of possible integers."
+                "\nThis number will also determine the amount points"
+                "\nyou get for guessing the correct code!"
+                "\nEnter a number from 1 to 5: "
+                )
             if difficulty_input.isdigit():
                 difficulty_integer = int(difficulty_input)
                 if 1 <= difficulty_integer <=5:
@@ -69,7 +75,13 @@ class Locksport:
 
     def play_game(self):
         """Core gameplay loop."""
-        print()
+        print(
+            "\n---LOCKSPORT---"
+            "\nWelcome to Locksport!"
+            "\nYou have three attempts to guess a three digit code."
+            "\nYou will be provided two clues:"
+            "\nthe sum and product of the digits."
+            )
 
         self.user = User(self)
         self.set_difficulty()
