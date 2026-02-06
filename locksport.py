@@ -91,4 +91,5 @@ class Locksport:
             self.evaluate_score()
             if self.user.attempts_remaining == 0:
                 print("\n---GAME OVER---")
+                print(f"\nFinal score: {self.user.score}")
                 break
