@@ -7,5 +7,6 @@ You have to guess a three number combination. You will be given two clues. A num
 ## To do
 [✔️] Assign points based on difficulty on a win\
 [✔️] Decrement attempts on a loss\
+[  ] Implement a way to quit the program\
 [  ] Allow users to create a username\
 [  ] Create and update a leaderboard
