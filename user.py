@@ -7,7 +7,7 @@ class User:
             'sum': 0,
             'product': 1
         }
-        self.points = 0
+        self.score = 0
         self.attempts_remaining = 3
 
     def guess_code(self):

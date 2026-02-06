@@ -1,9 +1,3 @@
-#########################
-#       Locksport       #
-# Author: Eric M. Todd  #
-# Last updated: 2/5/26  #
-#########################
-
 # Python Standard Library
 from random import randint
 
@@ -67,9 +61,13 @@ class Locksport:
             self.user.guess_values['sum'] += x
             self.user.guess_values['product'] *= x
         if self.user.guess_values['sum'] == self.clues['sum'] and self.user.guess_values['product'] == self.clues['product']:
-            print("You win!")
+            print("\nYou win!")
+            self.user.score += self.difficulty
+            print(f"Score: {self.user.score}")
         else:
-            print("You lose!")
+            print("\nYou lose!")
+            self.user.attempts_remaining -= 1
+            print(f"Attempts remaining: {self.user.attempts_remaining}")
         self.user.guesses = []
         self.user.guess_values = {
             'sum': 0,
@@ -91,3 +89,6 @@ class Locksport:
                 )
             self.user.guess_code()
             self.evaluate_score()
+            if self.user.attempts_remaining == 0:
+                print("\n---GAME OVER---")
+                break
